@@ -1,6 +1,6 @@
-This is a simple data base app of the Star Wars created by react.js
+# This is a simple data base app of the Star Wars created by react.js
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
