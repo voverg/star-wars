@@ -13,34 +13,66 @@ export default class SwapiService {
 
   async getAllPeople() {
     const res = await this.getResourse(`/people/`);
-    return res.results;
+    return res.results.map(this._transformPerson);
   }
 
-  getPerson(id) {
-    return this.getResourse(`/people/${id}`);
+  async getPerson(id) {
+    const person = await this.getResourse(`/people/${id}`);
+    return this._transformPerson(person);
   }
 
   async getAllPlanets() {
     const res = await this.getResourse(`/planets/`);
-    return res.results;
+    return res.results.map(this._transformPlanet);
   }
 
-  getPlanet(id) {
-    return this.getResourse(`/planets/${id}`);
+  async getPlanet(id) {
+    const planet = await this.getResourse(`/planets/${id}`);
+    return this._transformPlanet(planet);
   }
 
   async getAllStarships() {
     const res = await this.getResourse(`/starships/`);
-    return res.results;
+    return res.results.map(this._transformStarship);
   }
 
-  getStarship(id) {
-    return this.getResourse(`/starships/${id}`);
+  async getStarship(id) {
+    const starship = await this.getResourse(`/starships/${id}`);
+    return this._transformStarship(starship);
+  }
+
+  _extractId(item) {
+    const idRegExp = /\/(\d+)\/$/;
+    return item.url.match(idRegExp)[1];
+  }
+
+  _transformPerson(person) {
+    return {
+      id: this._extractId(person),
+      name: person.name,
+      getnder: person.gender,
+      birthYear: person.birth_year,
+      eyeColor: person.eye_color
+    };
+  }
+
+  _transformPlanet(planet) {
+    return {
+      id: this._extractId(planet),
+      name: planet.name,
+      population: planet.population,
+      rotationPeriod: planet.rotation_period,
+      diameter: planet.diameter,
+      climate: planet.climate
+    };
+  }
+
+  _transformStarship(starship) {
+    return {
+      id: this._extractId(starship),
+      name: starship.name,
+      model: starship.model,
+      length: starship.length
+    }
   }
 }
-
-const swapi = new SwapiService();
-
-swapi.getPlanet(3).then((people) => {
-  console.log(people.name);
-});

@@ -1,6 +1,8 @@
 .item-list {
   flex-grow: 1;
+  flex-shrink: 0;
   margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .item-list .list-group-item {
@@ -9,4 +11,10 @@
 
 .item-list .list-group-item:hover {
   background-color: #444;
+}
+
+@media (max-width: 520px) {
+  .item-list {
+    margin-right: 0;
+  }
 }

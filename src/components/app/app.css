@@ -5,3 +5,10 @@
 .description {
   display: flex;
 }
+
+@media (max-width: 520px) {
+  .description {
+    flex-direction: column;
+  }
+}
+
