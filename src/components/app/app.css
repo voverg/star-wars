@@ -6,7 +6,11 @@
   display: flex;
 }
 
-@media (max-width: 520px) {
+.my-col {
+  flex-basis: 50%;
+}
+
+@media (max-width: 620px) {
   .description {
     flex-direction: column;
   }
