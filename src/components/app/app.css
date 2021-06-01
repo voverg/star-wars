@@ -1,18 +1,6 @@
-.my-main {
+.app {
   padding: 0 20px;
 }
 
-.description {
-  display: flex;
-}
 
-.my-col {
-  flex-basis: 50%;
-}
-
-@media (max-width: 620px) {
-  .description {
-    flex-direction: column;
-  }
-}
 

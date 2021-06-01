@@ -53,7 +53,7 @@ export default class PersonDetails extends React.Component {
         {content}
       </div>
     );
-  };
+  }
 
 }
 
